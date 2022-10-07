@@ -7,28 +7,13 @@
     2 - Implemente uma solução que leia um vídeo e rotule/indique o(s) objeto(s) em movimento na cena. 
 
 """
-import numpy as np
-import cv2 as cv
+
+
+from question1.main import identifyColors
+
 
 def main():
-    image = cv.imread("paisagem.jfif", cv.IMREAD_COLOR)
+    identifyColors()
 
-    if image is None:
-        print("impossivel carregar a imagem!")
-        return
-    
-    hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
-    mask = cv.inRange(hsv, (36, 25, 25), (70, 255,255))
-
-    imask = mask > 0
-    green = np.zeros_like(image, np.uint8)
-    green[imask] = image[imask]
-
-    cv.imshow("green", green)
-
-    height, width, depth = image.shape
-    
-    cv.waitKey(0)
 
 main()
-
