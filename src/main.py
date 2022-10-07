@@ -10,9 +10,11 @@
 
 
 from question1.main import identifyColors
+from question2.main import readVideo
 
 
 def main():
+    readVideo()
     identifyColors()
 
 
